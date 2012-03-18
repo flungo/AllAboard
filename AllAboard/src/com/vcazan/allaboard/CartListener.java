@@ -3,6 +3,8 @@ package com.vcazan.allaboard;
 import java.util.logging.Logger;
 
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Minecart;
+import org.bukkit.entity.Player;
 import org.bukkit.entity.Vehicle;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -24,11 +26,14 @@ public class CartListener implements Listener {
 		public void onVehicleEntityCollision(VehicleEntityCollisionEvent event){
 			Vehicle cart = event.getVehicle();
 			Entity hitWhat = event.getEntity();
+			
+			log.info("Colission");
 
-			if (cart.toString() == "CraftMinecart" && plugin.enabled && hitWhat.toString().contains("CraftMinecart") == false){
-				if (hitWhat.toString().contains("CraftPlayer") && cart.isEmpty() == false){
+			if (cart instanceof Minecart && !(hitWhat instanceof Minecart)){
+				if (hitWhat instanceof Player && !cart.isEmpty()){
 					event.setCancelled(true);
 				}else if (cart.isEmpty()){
+					event.setCancelled(true);
 					cart.setPassenger(hitWhat);
 				}
 				
