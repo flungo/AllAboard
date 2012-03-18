@@ -26,14 +26,10 @@ public class CartListener implements Listener {
 		public void onVehicleEntityCollision(VehicleEntityCollisionEvent event){
 			Vehicle cart = event.getVehicle();
 			Entity hitWhat = event.getEntity();
-			
-			log.info("Colission");
 
 			if (cart instanceof Minecart && !(hitWhat instanceof Minecart)){
-				if (hitWhat instanceof Player && !cart.isEmpty()){
-					event.setCancelled(true);
-				}else if (cart.isEmpty()){
-					event.setCancelled(true);
+				event.setCancelled(true);
+				if (cart.isEmpty()){
 					cart.setPassenger(hitWhat);
 				}
 				
