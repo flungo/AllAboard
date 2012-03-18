@@ -4,7 +4,6 @@ import java.util.logging.Logger;
 
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Minecart;
-import org.bukkit.entity.Player;
 import org.bukkit.entity.Vehicle;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
