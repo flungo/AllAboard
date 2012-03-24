@@ -47,7 +47,7 @@ public class AllAboard extends JavaPlugin {
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
     	 
     	 if(cmd.getName().equalsIgnoreCase("autoboard")){
-    	   if (sender.isOp()){
+    	   if (sender.isOp() || sender.hasPermission("allaboard.admin")){
     		   if (enabled){
     			   sender.sendMessage("AllAboard is now disabed");
     			   enabled = false;
