@@ -28,6 +28,9 @@ public class AllAboard extends JavaPlugin {
     	pm.registerEvents(this.cartListener, this);
     	pm.registerEvents(this.cartLeave, this);
     	
+    	getConfig().options().copyDefaults(true);
+		saveConfig();
+    	
     	logMessage("Enabled");
     }
     
